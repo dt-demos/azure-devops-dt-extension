@@ -1,0 +1,55 @@
+{
+    "manifestVersion": 1,
+    "id": "DynatracePushEvents",
+    "version": "1.0.11",
+    "name": "Dynatrace Push Event",
+    "description": "DevOps Extension to enable Dynatrace Integration",
+    "publisher": "RobJahnDev",
+    "categories": [
+      "Azure Pipelines"
+    ],
+    "targets": [
+      {
+        "id": "Microsoft.VisualStudio.Services"
+      }
+    ],
+    "icons": {
+      "default": "icon.png"
+    },
+    "tags": [
+      "dynatrace"
+    ],
+    "galleryFlags": [
+      "Free",
+      "Public"
+    ],
+    "repository": {
+        "type": "git",
+        "uri": "https://github.com/robertjahn"
+    },
+    "content": {
+      "details": {
+        "path": "README.md"
+      }
+    },
+    "contributions": [
+      {
+        "id": "pushEvent",
+        "type": "ms.vss-distributed-task.task",
+        "targets": [
+          "ms.vss-distributed-task.tasks"
+        ],
+        "properties": {
+          "name": "pushEvent"
+        }
+      }
+    ],
+    "files": [
+      {
+        "path": "src"
+      },
+      {
+        "path": "images"
+      }
+    ]
+  }
