@@ -1,4 +1,0 @@
-{
-    "dynatraceTenantUrl" : "<YOUR URL, for example https://TENANT.live.dynatrace.com>",
-    "dynatraceApiToken" : "<YOUR API TOKEN>"
-}

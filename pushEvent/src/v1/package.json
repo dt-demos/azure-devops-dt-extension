@@ -1,0 +1,25 @@
+{
+  "name": "pusheventtask",
+  "version": "1.0.0",
+  "description": "Push Dynatrace events for specified tags and event type",
+  "dependencies": {
+    "azure-pipelines-task-lib": "^2.9.3",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "@types/mocha": "^5.2.7",
+    "@types/node": "^12.7.9",
+    "@types/q": "^1.5.2",
+    "sync-request": "^6.1.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rob Jahn",
+  "license": "MIT",
+  "execution": {
+    "Node10": {
+      "target": "index.js"
+    }
+  }
+}

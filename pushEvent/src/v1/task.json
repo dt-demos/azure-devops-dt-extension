@@ -1,0 +1,180 @@
+{
+  "id": "dcb64fb3-6353-4463-a753-47bdeeb1a842",
+  "name": "pushEventTask",
+  "friendlyName": "Dynatrace Push Event 1.0.1 (DEV)",
+  "instanceNameFormat": "Push Dynatrace $(eventType) Event",
+  "description": "Push Dynatrace Event Task for specified tags and event type.",
+  "author": "Rob Jahn",
+  "helpMarkDown": "[Learn more about this extension](https://github.com/dt-demos/azure-devops-extension-dt-push-event) or [Learn more about Dynatrace events](https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/events/post-event/)",
+  "category": "Utility",
+  "visibility": [
+    "Release"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "0",
+    "Patch": "1"
+  },
+  "groups": [
+    {
+        "name": "dynatraceDetails",
+        "displayName": "Dynatrace Details",
+        "isExpanded": false
+    }
+  ],
+  "inputs": [
+    {
+      "name": "eventType",
+      "type": "picklist",
+      "label": "Event Type",
+      "defaultValue": "deployment",
+      "required": true,
+      "helpMarkDown": "Choose the Dynatrace event type",
+      "options": {
+        "configuration": "Configuration",
+        "deployment": "Deployment",
+        "custom": "Custom Info"
+      }
+    },
+    {
+      "name": "dynatraceTenantUrl",
+      "type": "string",
+      "label": "Dynatrace tenant URL",
+      "defaultValue": "$(dynatraceTenantUrl)",
+      "required": true,
+      "helpMarkDown": "URL to your Dynatrace tenant e.g. https://<your tenant>.live.dynatrace.com",
+      "groupName": "dynatraceDetails"
+    },
+    {
+      "name": "dynatraceApiToken",
+      "type": "string",
+      "label": "Dynatrace API Token",
+      "defaultValue": "$(dynatraceApiToken)",
+      "required": true,
+      "helpMarkDown": "API token for your Dynatrace Tenant",
+      "groupName": "dynatraceDetails"
+    },
+    {
+      "name": "tagRule",
+      "type": "multiLine",
+      "label": "Tag Match Rule",
+      "defaultValue": "[{\n  \"meTypes\": \"SERVICE\",\n  \"tags\": [{\n     \"context\": \"CONTEXTLESS\",\n     \"key\": \"yourkey\",\n     \"value\": \"yourvalue\"\n  }]\n}]",
+      "properties": {
+        "resizable": "true",
+        "rows": "10",
+        "maxLength": "2000"
+      },
+      "required": true,
+      "helpMarkDown": "The tag rule array."
+    },
+    {
+      "name": "customProperties",
+      "type": "multiLine",
+      "label": "Custom Properties",
+      "defaultValue": "{}",
+      "properties": {
+        "resizable": "true",
+        "rows": "5",
+        "maxLength": "2000"
+      },
+      "required": false,
+      "helpMarkDown": "Custom Properties format is: { \"key1\": \"value1\", \"key2:\" \"value2\" }"
+    },
+    {
+      "name": "deploymentName",
+      "type": "string",
+      "label": "Deployment Name",
+      "defaultValue": "Deployment: Azure DevOps: $(Release.DefinitionName)",
+      "required": true,
+      "helpMarkDown": "The deployment name",
+      "visibleRule": "eventType = deployment"
+    },
+    {
+      "name": "deploymentVersion",
+      "type": "string",
+      "label": "Deployment Version",
+      "defaultValue": "Azure DevOps Release: $(Release.ReleaseName)",
+      "required": true,
+      "helpMarkDown": "Deployment version",
+      "visibleRule": "eventType = deployment"
+    },
+    {
+      "name": "deploymentProject",
+      "type": "string",
+      "label": "Deployment Project",
+      "defaultValue": "Azure DevOps Project: $(System.TeamProject)",
+      "required": false,
+      "helpMarkDown": "Deployment Project",
+      "visibleRule": "eventType = deployment"
+    },
+    {
+      "name": "remediationAction",
+      "type": "string",
+      "label": "Deployment remediation action",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Deployment remediation action",
+      "visibleRule": "eventType = deployment"
+    },
+    {
+      "name": "ciLink",
+      "type": "string",
+      "label": "Pipeline URL",
+      "defaultValue": "$(Release.ReleaseWebURL)",
+      "required": false,
+      "helpMarkDown": "Pipeline URL",
+      "visibleRule": "eventType = deployment"
+    },
+    {
+      "name": "title",
+      "type": "string",
+      "label": "Title",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Title",
+      "visibleRule": "eventType = custom"
+    },
+    {
+      "name": "description",
+      "type": "string",
+      "label": "Description",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Description",
+      "visibleRule": "eventType = configuration || eventType = custom"
+    },
+    {
+      "name": "source",
+      "type": "string",
+      "label": "Source",
+      "defaultValue": "DevOps Pipeline",
+      "required": true,
+      "helpMarkDown": "Source"
+    },
+    {
+      "name": "configuration",
+      "type": "string",
+      "label": "Configuration",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "Configuration",
+      "visibleRule": "eventType = configuration"
+    },
+    {
+      "name": "original",
+      "type": "string",
+      "label": "Original",
+      "defaultValue": "",
+      "required": false,
+      "helpMarkDown": "Original",
+      "visibleRule": "eventType = configuration"
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "pushEventTask.js",
+      "argumentFormat": ""
+    }
+  }
+}

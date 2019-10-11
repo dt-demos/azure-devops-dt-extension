@@ -3,5 +3,5 @@
 test-inputs.json
 publish-inputs.sh
 node_modules/
-vss-extension.*.bak 
-task.*.bak 
+*.bak
+*.vsix

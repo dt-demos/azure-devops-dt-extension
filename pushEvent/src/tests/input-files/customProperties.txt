@@ -1,5 +1,0 @@
-{
-    "Mock Property 1": "Mock Value 1",
-    "Mock Property 2": "Mock Value 2",
-    "Mock Property 3": "Mock Value 3"
-}

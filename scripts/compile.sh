@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd ../pushEvent/src
+cd ../pushEvent/src/v1
 
 echo "==============================================="
 echo "npm install"

@@ -1,8 +1,13 @@
-MAJOR_VERSION=1
-MINOR_VERSION=0
-PATCH_VERSION=11
-
+# get the access token for your account
 DEVOPS_PERSONAL_ACCESS_TOKEN=
-DEVOPS_PUBLISHER=
 DEVOPS_EXTENSION_NAME=
-SHARE_WITH=
+
+# each task must have a unique GUID
+DEVOPS_PROD_PUBLISHER=
+DEVOPS_PROD_TASK_GUID=
+
+# NOTE: SHARE_WITH value is a space seperated ist of Azure DevOps organization(s) 
+# with which to share the extension
+DEVOPS_DEV_PUBLISHER=
+DEVOPS_DEV_TASK_GUID=
+DEVOPS_DEV_SHARE_WITH=
