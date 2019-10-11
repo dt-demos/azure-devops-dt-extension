@@ -7,13 +7,13 @@ For an overview of the process to develop extensions, read this [Microsoft guide
 
 You can reach out to rob.jahn@dynatrace.com with questions.
 
-# Build and publish using copy of the REPO
+# Build and publish using copy of this extension
 
 _**NOTE: The instructions and helper scripts assume MacOS.**_
 
 ## Prerequisites
 
-1. Create or have access to add extenstions to a [Azure DevOps account](https://visualstudio.microsoft.com/team-services/)
+1. Create or have access to add extensions to a [Azure DevOps account](https://visualstudio.microsoft.com/team-services/)
 
 1. Create Azure Marketplace publisher account - See this [Microsoft guide](https://docs.microsoft.com/en-us/azure/devops/extend/develop/add-build-task?view=vsts#createpublisher) for help
 
@@ -123,6 +123,8 @@ Each extention needs a unique version and needs to be a "vsix" archive file that
     * copy the /src/v[x]/ folder to the next version
     * revert the version number to x.0.0
     * once published, the task version drop down in Azure DevOps shows ```1.*, 2.*, etc.```
+
+    This will allow you to update version of the Major task releases independantly. Read [this](https://stackoverflow.com/questions/43789135/tfs-custom-build-tasks-multiple-versions) for for more info
 
 1. Any version updates to an extension will automatically install the new version to the Azure DevOps orgs where it is installed.  It make take a minute or two to propogate.
 
