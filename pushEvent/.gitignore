@@ -14,3 +14,4 @@ node_modules/
 
 # exclude compiled code
 *.js
+.taskkey
