@@ -1,8 +1,16 @@
 .DS_Store
+
+# files with secrets
 .env
 test-inputs.json
 publish-inputs.sh
-node_modules/
-vss-extension.*.bak 
-task.*.bak 
+
+# backup files
+*.bak 
+
+# compiled objects
 extension-packages/
+node_modules/
+
+# exclude compiled code
+*.js
